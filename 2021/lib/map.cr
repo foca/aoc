@@ -34,6 +34,14 @@ class Map(T)
     @cols = data.first.size
   end
 
+  def [](x, y) : T
+    @data[y][x].value
+  end
+
+  def []=(x,y, value : T)
+    @data[y][x] = Coord(T).new(x, y, value)
+  end
+
   def each(&block : Coord(T) ->)
     @data.flatten.each(&block)
   end
